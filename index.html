@@ -15,6 +15,7 @@
       let client_id = "3875217294902.3908719676998";
       let client_secret = "0e8198f42375091e4a393f5a5639b7e4";
       const url = "https://slack.com/api/oauth.v2.access";
+      const sendResponseUrl = "https://chatbot-apis-dev.herokuapp.com/node/v1/slack";
 
       const params = new URLSearchParams({
         client_id: "3875217294902.3908719676998",
@@ -31,7 +32,16 @@
         url,
       };
       window.onload = () => {
-        axios(options).then((response) => console.log(response));
+        axios(options).then((response) => {
+          const sendData = {
+            method: "POST",
+            data: response?.data,
+            sendResponseUrl,
+          };
+          axios(sendData).then((response) => {
+            // window.close();
+          });
+        });
       };
     </script>
     <h1>Integration completed, please close this window</h1>
