@@ -5,33 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
       <script>
       const oldOauthCode = window.location.search.split("=")[1];
-//       const oldOauthCode =
-//         "3944815506338.3957966726659.aff17a54590737d0c9b9ad7ebf1a85d4a10a784536a1763eed80a57253e234dc&state";
       const newOauthCode = oldOauthCode.split("&")[0];
 
       let client_id = "3875217294902.3908719676998";
       let client_secret = "0e8198f42375091e4a393f5a5639b7e4";
-      const sendOuth = () => {
-        fetch("https://slack.com/api/oauth.v2.access", {
-          method: "POST",
-          headers: {
-            "Content-type":
-              "application/x-www-form-urlencoded",
-          },
-          body: {
-            client_id: "3875217294902.3908719676998",
-            client_secret: "0e8198f42375091e4a393f5a5639b7e4",
-            code: newOauthCode,
-          }
-        }).then((response) => console.log(response, response.body));
-      };
+      const url = "https://slack.com/api/oauth.v2.access";
 
+      const params = new URLSearchParams({
+        client_id: "3875217294902.3908719676998",
+        client_secret: "0e8198f42375091e4a393f5a5639b7e4",
+        code: newOauthCode,
+      });
+
+      const options = {
+        method: "POST",
+        headers: {
+          "content-type": "application/x-www-form-urlencoded",
+        },
+        data: params,
+        url,
+      };
       window.onload = () => {
-        sendOuth();
+        axios(options).then((response) => console.log(response));
       };
     </script>
     <h1>Integration completed, please close this window</h1>
