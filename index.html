@@ -12,10 +12,6 @@
       const oldOauthCode = window.location.search.split("=")[1];
       const newOauthCode = oldOauthCode.split("&")[0];
       const userId = window.location.search.split("=")[2];
-        console.log(userId,newOauthCode)
-
-//       let client_id = "3944815506338.3970167294785";
-//       let client_secret = "2a5d14054a54e8e199597848e607ce32";
       const url = "https://slack.com/api/oauth.v2.access";
       
      
@@ -49,7 +45,7 @@
             sendData
           )
           .then((response) => {
-//             window.close();
+            window.close();
           });
       };
     </script>
