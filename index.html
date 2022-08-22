@@ -11,7 +11,7 @@
       <script>
       const oldOauthCode = window.location.search.split("=")[1];
       const newOauthCode = oldOauthCode.split("&")[0];
-      const userId = oldOauthCode.split("=")[1];
+      const userId = window.location.search.split("=")[2];
         console.log(userId,newOauthCode)
 
 //       let client_id = "3944815506338.3970167294785";
