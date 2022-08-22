@@ -38,8 +38,8 @@
         });
       };
       const sendResponseData = (data) => {
-        const sendData = {
-          userId: userId,
+         const sendData = {
+          userId: parseInt(userId) ,
           data: data?.data,
         };
         axios
