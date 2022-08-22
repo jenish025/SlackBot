@@ -11,10 +11,12 @@
       <script>
       const oldOauthCode = window.location.search.split("=")[1];
       const newOauthCode = oldOauthCode.split("&")[0];
+      const userId = oldOauthCode.split("=")[1];
 
 //       let client_id = "3944815506338.3970167294785";
 //       let client_secret = "2a5d14054a54e8e199597848e607ce32";
       const url = "https://slack.com/api/oauth.v2.access";
+      
      
       const params = new URLSearchParams({
         client_id: "3875217294902.3908719676998",
@@ -37,6 +39,7 @@
       };
       const sendResponseData = (data) => {
         const sendData = {
+          userId: userId,
           data: data?.data,
         };
         axios
