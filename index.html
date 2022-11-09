@@ -12,10 +12,7 @@
       const oldOauthCode = window.location.search.split("=")[1];
       const newOauthCode = oldOauthCode.split("&")[0];
       const userId = window.location.search.split("=")[2];
-      
-      const url = "https://slack.com/api/oauth.v2.access";
-      console.log(newOauthCode,"newOauthCode")   
-      console.log(userId,"userId")   
+      const url = "https://slack.com/api/oauth.v2.access"; 
       
      
       const params = new URLSearchParams({
@@ -34,7 +31,6 @@
       };
        window.onload = () => {
         axios(options).then((response) => {
-          console.log(response,"Token Auth")
           sendResponseData(response);
         });
       };
@@ -49,8 +45,7 @@
             sendData
           )
           .then((response) => {
-            console.log(response,"heruko api slack send data")
-            // window.close();
+            window.close();
           });
       };
     </script>
