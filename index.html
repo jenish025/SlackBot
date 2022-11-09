@@ -17,7 +17,7 @@
      
       const params = new URLSearchParams({
         client_id: "3875217294902.3908719676998",
-        client_secret: "0e8198f42375091e4a393f5a5639b7e4",
+        client_secret: "79e6371e4e746e6a860c338df886e4cd",
         code: newOauthCode,
       });
 
@@ -41,7 +41,7 @@
         };
         axios
           .post(
-            "https://chatbot-apis-dev.herokuapp.com/api/integrations/v1/slack",
+            "https://chatbot-apis-dev.herokuapp.com/api/v1/integrations/slack",
             sendData
           )
           .then((response) => {
